@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			
+			<title>
+				Welcome
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+
+			<div class = "header">
+				<div class = "blogname"><a href="http://pagevista.appspot.com/welcome">pageVista</a></div>
+					<div class = "new_post">
+  		    			<a href="http://pagevista.appspot.com/new"><img src="/static/images/write-icon.jpg"></a>
+  		    			<div id = "popup_new_post" >Write a new post</div>
+  	    			</div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://pagevista.appspot.com/logout"><img src="/static/images/logout.png"></a>
+					{% endif %}
+				</div>  	    	
+				<div class = "signup"><a href="http://pagevista.appspot.com/signup">{{signup}}</a></div>
+				<div class = "login"><a href="http://pagevista.appspot.com/login">{{login}}</a></div>
+				<div class = "username">
+					<a href = "http://pagevista.appspot.com/hello_user/{{username}}">{{username}}</a>
+				</div>
+ 			</div>
+ 			<div id = "blogname_wrapper1">
+ 			
+				<div id = "blogname_inner1">
+ 						<div id = "recent" >
+ 							<a href="http://pagevista.appspot.com/recent">Recent</a>
+ 						</div>
+ 						<div id = "trending">
+ 							<a href="http://pagevista.appspot.com/trending">Trending</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/tags">All Tags</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/people">All people</a>
+ 						</div>
+ 					<!-- 	<div id = "all_time_great">
+ 							<a href="http://pagevista.appspot.com/all_time_great">All Time great</a>
+ 						</div> --><!-- 
+ 						<div id = "tags">
+ 							<a href="http://pagevista.appspot.com/tags">Tags</a>
+ 						</div> -->
+ 						<div id = "search_area">
+	 						<form name = "search_box" method = "post">
+	 							<!-- <input type="radio" name="sex" value="male" /> -->
+	 							<input type ="radio" name = "tags_or_people" value = "tags" checked="checked" />Tags
+	 							<input type ="radio" name = "tags_or_people" value = "people" />People
+ 								<input type = "text" name = "search_key"/>
+		 							<input type = "submit" name = "tag_search" value = "Search"/>
+	 						</form>
+	 					</div> 
+ 						<div style = "clear:both"></div>
+ 						<hr>
+ 					</div>
+ 				<div id = "welcome_to_pageVista">
+ 				 <div id = "welcome"> Welcome to <br><div id = "site_name"> pageVista</div></div><br>
+
+ 				If you are looking for a place to share your ideas, thoughts, views or whatever you want for 
+ 				absolutely free pageVista is exactly what you want.<br><br>
+
+ 				We provide free greenpages on the internet that you can share with your friends.
+ 				You no longer have the trouble of maintaining a blog. <br><br>
+
+ 				Own a page and start writing.<br><br>
+ 				</div>
+ 				<div id = "welcome_login">
+ 					<a href="http://pagevista.appspot.com/signup">Signup for Free!</a>
+ 				</div>
+ 				<br><br>
+				<div id = "like_and_share">
+					<div id = "twitter">
+ 						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+					<div id = "facebook">
+						<iframe src="https://www.facebook.com/plugins/like.php?href=pagevista.appspot.com/welcome"
+        					scrolling="no" frameborder="0"
+        					style="border:none; width:450px; height:80px"></iframe>
+        			</div>
+ 				</div>
+
+ 				<br>
+ 				<br>
+ 				<br>
+ 				</div>
+ 			</div>
+
+ 		</div>
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>	
+		
+	</body>
+
+</html>

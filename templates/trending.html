@@ -1,0 +1,186 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			<script type="text/javascript">
+				function popAlert(){
+					arrCookies = document.cookie;
+					alert(arrCookies);					
+				}
+				function popAlert(){
+				// arrCookies = document.cookie;
+				// alert(arrCookies);
+				document.getElementById('login_prompt').style.display = "block";
+				}
+				function closeWindow(){
+					document.getElementById('login_prompt').style.display = "none";
+				}
+			</script>
+			<title>
+				Trending
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+
+			<div class = "header">
+				<div class = "blogname"><a href="http://pagevista.appspot.com/welcome">pageVista</a></div>
+					<div class = "new_post">
+  		    			<a href="http://pagevista.appspot.com/new"><img src="/static/images/write-icon.jpg"></a>
+  		    			<div id = "popup_new_post" >Write a new post</div>
+  	    			</div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://pagevista.appspot.com/logout"><img src="/static/images/logout.png"></a>
+					{% endif %}
+				</div>  	    	
+				<div class = "signup"><a href="http://pagevista.appspot.com/signup">{{signup}}</a></div>
+				<div class = "login"><a href="http://pagevista.appspot.com/login">{{login}}</a></div>
+				<div class = "username">
+					<a href = "http://pagevista.appspot.com/hello_user/{{username}}">{{username}}</a>
+				</div>
+ 			</div>
+
+ 			<div id = "blogname_wrapper1">
+ 			
+ 		
+ 				<div id = "blogname_pic_description_and_post">
+ 					<div id = "blogname_inner1">
+ 						<div id = "recent" >
+ 							<a href="http://pagevista.appspot.com/recent">Recent</a>
+ 						</div>
+ 						<div id = "trending" style="background:#193D62">
+ 							<a href="http://pagevista.appspot.com/trending">Trending</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/tags">All Tags</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/people">All people</a>
+ 						</div>
+ 					<!-- 	<div id = "all_time_great">
+ 							<a href="http://pagevista.appspot.com/all_time_great">All Time great</a>
+ 						</div> --><!-- 
+ 						<div id = "tags">
+ 							<a href="http://pagevista.appspot.com/tags">Tags</a>
+ 						</div> -->
+ 						<div id = "search_area">
+	 						<form name = "search_box" method = "post">
+	 							<!-- <input type="radio" name="sex" value="male" /> -->
+	 							<input type ="radio" name = "tags_or_people" value = "tags" checked="checked" />Tags
+	 							<input type ="radio" name = "tags_or_people" value = "people" />People
+ 								<input type = "text" name = "search_key"/>
+		 							<input type = "submit" name = "tag_search" value = "Search"/>
+	 						</form>
+	 					</div> 
+ 						<div style = "clear:both"></div>
+ 						<hr>
+ 					</div>
+ 					<div id = "blogname_inner2">
+ 						{% for id in posts %}	
+ 							<div id = "blogname_four">
+ 								<span class = "blogname_title1"><a href = "http://pagevista.appspot.com/done/{{id[0]}}">{{id[1]}}</a></span>
+ 								<span id = "blogname_date">{{id[4]}}</span><br><br>
+ 								{% if not username %}
+ 									
+ 									
+ 									{% if id[7] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[7]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[8] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[8]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[9] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[9]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								<span id = "search_people">
+	 									<span id = "people_specific"><a style = "font-size:15px;" onClick ="popAlert();">{{id[2]}}</a></span>
+	 								</span>
+ 								{% else %}
+ 									
+
+ 									{% if id[7] %}
+	 									<span id = "search_tags" >
+	 										<a href="http://pagevista.appspot.com/tag/{{id[7]}}" >{{id[7]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[8] %}
+	 									<span id = "search_tags">
+	 										<a href="http://pagevista.appspot.com/tag/{{id[8]}}">{{id[8]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[9] %}
+	 									<span id = "search_tags">
+	 										<a href="http://pagevista.appspot.com/tag/{{id[9]}}">{{id[9]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								<span id = "search_people"><a  style = "font-size:15px;" href = "http://pagevista.appspot.com/hello_user/{{id[2]}}" >
+ 									{{id[2]}}</a></span>
+ 									
+ 								{% endif %}
+ 								
+	 						</div>
+	 						<div id = "blogname_five">
+            					<div id = "blogname_five_one">{{id[10]}}</div>
+            					<div id = "blogname_five_two"><img src="/static/images/thumbsup.png"></div>
+            					<div id = "blogname_five_three">{{id[11]}}</div>
+            					<div id = "blogname_five_four"><img src = "/static/images/thumbsdown.png"></div>
+            					<div id = "blogname_five_five">{{id[6]}}</div>
+            					<div id = "blogname_five_six"><img src = "/static/images/comments3.png"></div>
+            					<div style = "clear:both"></div>
+            				</div>
+            				<div style = "clear:both;"></div>
+  						{% endfor %}
+ 					</div>
+					<div id = "blogname_inner3">
+<!--           	   			<div id = "blogname_inner3_left">
+          	   				prev button
+          	   			</div>
+          	   			<div id = "blogname_inner3_right">
+          	   				next button 
+          				</div>		 -->
+          			</div>	
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>	
+		<div id = "login_prompt" style = "display:none">
+			<div id = "close_button" onClick="closeWindow();"><img src="/static/images/CloseButton.png">
+			</div>
+			<div id = "login_message">
+				You need to <a href="http://pagevista.appspot.com/login">Login</a> to do that.<br><br>
+				<form action = "http://pagevista.appspot.com/login" name = "login" method = "post">
+				<table align = "center">				
+					<tr>
+						<td>Username: </td><td><input type = "text" name = "username" value = "{{username}}"></td>
+					</tr>
+						<td>Password: </td><td><input type = "password" name = "password"></td>
+					<div class = "loginpage_error">{{loginpage_error}}</div>
+				</table>
+					<input type = "submit" value = "login" >
+				</form>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div id = "signup_message">
+				Dont have an account? <a href="http://pagevista.appspot.com/signup">Signup</a> and get 
+				started
+			</div>
+		</div>	
+	</body>
+
+</html>

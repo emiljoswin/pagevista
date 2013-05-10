@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title> The init page</title>
+	</head>
+		<form name = "init_form" method = "post"  enctype="multipart/form-data">
+			Enter the default image file to be displayed in case the user hasn't uploaded any:<br>
+			<input type  = "file" name = "def_img">
+			<input type = "submit" name = "submit" value = "submit">
+		</form>
+
+		Default_image:
+		<img src="http://pagevista.appspot.com/img_def?img_id={{image_id_key}}"></img>
+		<br>
+		found at -- {{image_id_key}} --
+		<br>
+		with url http://pagevista.appspot.com/img_def?img_id={{image_id_key}}
+
+</html>

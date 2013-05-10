@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+		<script type="text/javascript">
+			function changeColor(){
+				document.getElementById("follow_heading").style.backgroundColor = "green";
+			}
+			function changeAgain(){
+				document.getElementById("follow_heading").style.backgroundColor= "black"
+			}
+
+		</script>
+			<title>
+				hello_user
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+
+			<div class = "header">
+				<div class = "blogname">
+					<a href="http://localhost:8080/blogname">blogname</a>
+				</div>
+				<div class = "new_post">
+  		    		<a href="http://localhost:8080/new"><img src="/static/images/write-icon.jpg"></a>
+  		    		<div id = "popup_new_post" >Write a new post</div>
+  	    		</div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://localhost:8080/logout"><img src="/static/images/logout.png"></a>
+					{% endif %}
+				</div>
+				<div class = "username">
+					<a href= "http://localhost:8080/hello_user/{{username}}">{{username}}</a>
+	 			</div>
+ 			</div>
+
+
+	 		<div id = "hello_user_wrapper">
+ 				<div class = "userdetails">
+ 					<div id = "userdetails_left">
+  						<div class = "image">
+	 						<a href = "http://localhost:8080/upload_image"><img src = "http://localhost:8080/img?img_id={{image_id_key}}">
+	 						</img></a>
+	 					<div id = "popup_change_image">Click to change you display picture</div>
+	 					</div>
+ 					</div>
+ 					<div id = "userdetails_right">
+ 						<div class = "user_descriptioin">
+ 							<div class = "hello_user_username">{{whos_page}}</div><hr>
+	 						<div id = "hello_user_userdescription">hi this is the description about me</div>
+ 						</div>
+
+					</div> 
+
+
+				</div>
+
+ 				<div style = "height:auto;" class = "hello_user_posts">
+ 					<hr>
+ 					{% for id in posts %}
+ 					<div id = "post_container">
+ 						<span class = "hello_user_title"><a href = "http://localhost:8080/done/{{id[0]}}">{{id[1]}}</a></span>
+	 					<span class = "hello_user_author"><a href = "http://localhost:8080/hello_user/{{id[2]}}">
+	 						{{id[2]}}</a></span>
+	 					<br>
+						{% if id[7] %}
+	 						<span id = "blogname_tag1"><a href="http://localhost:8080/tag/{{id[7]}}">{{id[7]}}</a>
+	 						</span>
+	 					{% endif %}
+	 					{% if id[8] %}
+	 						<span id = "blogname_tag2"><a href="http://localhost:8080/tag/{{id[8]}}">{{id[8]}}</a>
+	 						</span>
+	 					{% endif %}
+	 					{% if id[9] %}
+	 						<span id = "blogname_tag3"><a href="http://localhost:8080/tag/{{id[9]}}">{{id[9]}}</a>
+	 						</span>
+	 					{% endif %}	 						
+  						<span class = "hello_user_date">{{id[4]}}</span>
+ 						<hr>
+		 			</div>
+		 			<div id = "hello_user_total_likes">
+	 					<div class = "hello_user_like">{{id[5]}}</div>
+	 					<div class = "hello_user_like_pic"><img src="/static/images/thumbsup.png"></div>
+	 					<div class = "hello_user_comment_count">{{id[6]}}</div>
+	 					<div class = "hello_user_comment_icon"><img src = "/static/images/comments3.png"></div>
+  					</div>
+	  					{% endfor %}
+  		    	</div>
+
+  	    		</div>
+
+
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://localhost:8080/about">About</a>
+		</div>		
+
+		<!-- Do not delete this one. A follow button is to be added later.
+			<div class = "following">
+			<div id = "follow_heading" onMouseOver="changeColor();" onMouseOut="changeAgain();">
+  				Following<hr>
+  			</div>
+  			{% if following %}
+    		{% for user in following %}
+   			<div id = "follows"><a href = "http://localhost:8080/hello_user/{{user}}">{{user}}</a></div><hr>
+    			{% endfor %}
+  	    		{% endif %}
+  		</div> -->
+
+	</body>
+
+</html>

@@ -1,0 +1,15 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+a{
+	text-decoration:none;
+	cursor: pointer;
+}
+.header{
+	background-color:#252525;
+	height:50px;
+}
+.blogname a{
+	color:#fff;
+}

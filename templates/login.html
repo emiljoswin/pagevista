@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			<title>
+				login
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+			<div class = "header">
+				<div class = "blogname"><a href="http://pagevista.appspot.com/welcome" style = "text-decoration:none">pageVista</a></div>
+				<span class = "signup"><a href="http://pagevista.appspot.com/signup">{{signup}}</a></span>
+			</div>
+
+			<div id = "login_wrapper">
+ 	 			<form name = "login_form" method = "post">
+	 	 			<table align = "center"> 	 				
+ 	 					<tr>
+ 	 						<td><span id = "login_username"> Username: </span></td>
+ 	 						<td><input type = "text" name = "username" value = "{{username}}"></td>
+ 	 					</tr>
+ 	 					<tr>
+ 	 						<td><span id = "login_password"> Password: </span></td>
+ 	 						<td><input type = "password" name = "password"></td>
+ 	 					</tr>
+ 	 				</table><br>
+ 	 				<input type = "submit" name = "login" value = "login">
+ 	 			</form>
+ 	 			<div id = "login_error">{{loginpage_error}}</div>
+ 	 			{% if valid_username %}
+ 	 				<div id = "valid_usename">Forgot password? click <a href = "http://pagevista.appspot.com/password_reset">here</a> to reset password</div>
+ 	 			{% endif %}
+ 	 		</div>
+ 	 	</div>
+ 	 	<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>	
+	</body>
+
+</html>

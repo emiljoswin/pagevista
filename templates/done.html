@@ -1,0 +1,269 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+		<script type="text/javascript">
+			function popAlert(){
+				// arrCookies = document.cookie;
+				// alert(arrCookies);
+				document.getElementById('login_prompt').style.display = "block";
+			}
+			function closeWindow(){
+				document.getElementById('login_prompt').style.display = "none";
+			}
+			function likePressed(){
+				document.getElementById("like").style.height = "55px";
+				document.getElementById("like").style.width = "55px";
+				document.getElementById("like").style.cursor = "pointer";
+				document.getElementById("dislike").style.marginLeft = "5px";
+				document.getElementById("dislike").style.marginTop = "5px";
+
+			}
+			function likeReleased(){
+				document.getElementById("like").style.height = "50px";
+				document.getElementById("like").style.width = "50px";
+				document.getElementById("dislike").style.marginLeft = "0px";
+				document.getElementById("dislike").style.marginTop = "20px";				
+			}
+			function dislikePressed(){
+				document.getElementById("dislike").style.height = "55px";
+				document.getElementById("dislike").style.width = "55px";
+				document.getElementById("dislike").style.cursor = "pointer";
+				document.getElementById("like").style.marginBottom = "-15px";
+			}
+			function dislikeReleased(){
+				document.getElementById("dislike").style.height = "50px";
+				document.getElementById("dislike").style.width = "50px";
+				document.getElementById("like").style.marginBottom = "0px";
+			}
+			function submitPressed(){
+				document.getElementById("submit_button").style.height = "27px";
+				document.getElementById("submit_button").style.width = "72px";
+				document.getElementById("submit_button").style.cursor = "pointer";
+			}
+			function submitReleased(){
+				document.getElementById("submit_button").style.height = "25px";
+				document.getElementById("submit_button").style.width = "70px";
+			}
+		</script>
+		<title>
+			{% for id in post %}
+				{{id[1]}}
+			{% endfor %}
+		</title>
+	</head>
+	<body>
+		<div id = "container"> <!-- This is for making sticky footer. we stretch the body to 100% minimum height-->
+			<div class = "header">
+				<span class = "blogname"><a href="http://pagevista.appspot.com/welcome">pageVista</a></span>	
+				<div class = "new_post">
+  		    		<a href="http://pagevista.appspot.com/new"><img src="/static/images/write-icon.jpg"></a>
+  		    		<div id = "popup_new_post" >Write a new post</div>
+  	    		</div>					
+				{% if logout %}
+				<div class = "logout"><a href="http://pagevista.appspot.com/logout"><img src="/static/images/logout.png"></a></div>
+				{% endif %}
+				<div class = "username"><a href = "http://pagevista.appspot.com/hello_user/{{username}}">{{username}}</a></div>		
+				<div class = "signup"><a href="http://pagevista.appspot.com/signup">{{signup}}</a></div>
+				<div class = "login"><a href="http://pagevista.appspot.com/login">{{login}}</a></div>
+			</div>	
+
+			<div id = "done_wrapper">
+				<div id = "blogname_inner1">
+ 						<div id = "recent"  >
+ 							<a href="http://pagevista.appspot.com/recent">Recent</a>
+ 						</div>
+ 						
+ 						<div id = "trending">
+ 							<a href="http://pagevista.appspot.com/trending">Trending</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/tags">All Tags</a>
+ 						</div>
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/people">All people</a>
+ 						</div>
+ 					<!-- 	<div id = "all_time_great">
+ 							<a href="http://pagevista.appspot.com/all_time_great">All Time great</a>
+ 						</div> --><!-- 
+ 						<div id = "tags">
+ 							<a href="http://pagevista.appspot.com/tags">Tags</a>
+ 						</div> -->
+ 						<div id = "search_area">
+	 						<form name = "search_box" method = "post">
+	 							<!-- <input type="radio" name="sex" value="male" /> -->
+	 							<input type ="radio" name = "tags_or_people" value = "tags" checked="checked" />Tags
+	 							<input type ="radio" name = "tags_or_people" value = "people" />People
+ 								<input type = "text" name = "search_key"/>
+		 							<input type = "submit" name = "tag_search" value = "Search"/>
+	 						</form>
+	 					</div> 
+ 						<div style = "clear:both"></div>
+ 						 						
+ 						<hr>
+
+ 					</div>
+				<div id = "done_title_contents">
+	 				{% for id in post %}
+
+						<div id = "done_title">{{id[1]}}</div>
+						<div id = "done_date">{{id[4]}}</div>
+						<br>
+						<!-- <div id = "dont_tags"> -->
+						{% if not username %}
+ 									 									
+ 									{% if id[7] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[7]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[8] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[8]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[9] %}
+	 									<span id = "search_tags">
+	 										<span id = "specific"><a onClick ="popAlert();">{{id[9]}}</a></span>
+	 									</span>
+	 								{% endif %}
+	 								
+ 								{% else %}
+ 									
+ 									{% if id[7] %}
+	 									<span id = "search_tags" >
+	 										<a href="http://pagevista.appspot.com/tag/{{id[7]}}" >{{id[7]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[8] %}
+	 									<span id = "search_tags">
+	 										<a href="http://pagevista.appspot.com/tag/{{id[8]}}">{{id[8]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+	 								{% if id[9] %}
+	 									<span id = "search_tags">
+	 										<a href="http://pagevista.appspot.com/tag/{{id[9]}}">{{id[9]}}</a>
+	 									</span>
+	 								{% endif %}
+	 								
+
+ 								{% endif %}
+						<div id = "done_content">{{id[12]|safe}}</div>
+					{% endfor %}
+				</div>
+				<div id = "done_author_share">
+					<div id = "done_share_button">
+						<div id = "twitter"><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						<div id = "facebook">
+						<iframe src="https://www.facebook.com/plugins/like.php?href=pagevista.appspot.com/done/{{post_id}}"
+        					scrolling="no" frameborder="0"
+        					style="border:none; width:450px; height:80px"></iframe>
+        				</div>
+					</div>
+					{% if username %}
+					<div id = "done_author"><a href="http://pagevista.appspot.com/hello_user/{{author}}">{{author}}</a></div>
+					{% else %}
+					<div id = "done_author"><a onClick = "popAlert();">{{author}}</a></div>
+					{% endif %}
+					<div style = "clear:both;"></div>
+				</div>
+				<hr>
+
+				{{comment_count}} comments
+				<div id = "done_comments">
+					{% for comment in comments %}
+					<div id = "done_comment">{{comment.comment|safe}}</div><br>
+					{% if username %}
+						<div id = "commenter"><a href = "http://pagevista.appspot.com/hello_user/{{comment.commenter}}">{{comment.commenter}}</a></div><br>
+					{% else %}
+						<!-- <div id = "commenter"><a href = "http://pagevista.appspot.com/hello_user/{{comment.commenter}}">{{comment.commenter}}</a></div><br> -->
+						<div id = "commenter"><a onClick = "popAlert();">{{comment.commenter}}</a></div><br>
+					{% endif %}
+					<hr>
+					{% endfor %}
+					<div id = "submit_comment">
+							{% if not username %}						
+							<textarea name = "comment"></textarea><br>
+							<button id = "no_logged_in_submit" onClick = "popAlert()"></button>
+							<!-- <input type = "submit" name = "submit_comment" id = "submit_button" value = "Submit your comment" onMouseOver="submitPressed();" onMouseOut="submitReleased();" onClick="popAlert();"> -->
+							{% else %}
+							<form name ="comments" method = "post">						
+							<textarea name = "comment"></textarea><br>
+							<input type = "submit" name = "submit_comment" id = "submit_button">
+							</form>
+							{% endif %}
+
+						
+					</div>
+				</div>
+		</div>
+	</div>
+ 	<div id = "footer">
+ 		<hr>
+		<a href = "http://pagevista.appspot.com/about">About</a>
+	</div>	
+
+
+		<div id = "like_area">
+			<div id = "like_button">
+				
+					{% if not username %}
+					<button id = "no_logged_in_like" onClick = "popAlert()"></button>
+<!-- 
+					<input type = "submit" value = "like" name = "like" id ="like" onMouseOver="likePressed();" onMouseOut="likeReleased();"
+					onClick="popAlert();"> -->
+					{% else %}
+					<form name="like_form" method = "post">
+					<input type = "submit" value = "like" name = "like" id ="like" >
+					</form>
+					{% endif %}
+
+				
+			</div>
+			<div id = "like_count">{{like_count}}</div>
+			<div id = "unlike_button">
+				
+					{% if not username %}
+					<button id = "no_logged_in_unlike" onClick = "popAlert()">dislike</button>
+					<!-- <input type = "submit" value = "dislike" name = "dislike" id = "dislike" onMouseOver="dislikePressed();" 
+					onMouseOut="dislikeReleased();" onClick="popAlert();"> -->
+					{% else %}
+					<form name = "unlike_form" method = "post">
+					<input type = "submit" value = "dislike" name = "dislike" id = "dislike" >
+					</form>
+					{% endif %}
+				
+			</div>
+		</div>
+		<div id = "login_prompt" style = "display:none">
+			<div id = "close_button" onClick="closeWindow();"><img src="/static/images/CloseButton.png">
+			</div>
+			<div id = "login_message">
+				You need to <a href="">Login</a> to do that.<br><br>
+				<form action = "http://pagevista.appspot.com/login" method = "post" name = "login">
+					<table align = "center">				
+						<tr>
+							<td>Username: </td><td><input type = "text" name = "username" value = "{{username}}"></td>
+						</tr>
+							<td>Password: </td><td><input type = "password" name = "password"></td>
+						<div class = "loginpage_error">{{loginpage_error}}</div>
+					</table>
+					<input type = "submit" value = "login" >
+				</form>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div id = "signup_message">
+				Dont have an account? <a href="http://pagevista.appspot.com/signup">Signup</a> and get 
+				started
+			</div>
+		</div>
+
+	<body>	
+</html>

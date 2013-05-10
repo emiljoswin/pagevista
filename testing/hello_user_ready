@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+		<script type="text/javascript">
+			function changeColor(){
+				document.getElementById("follow_heading").style.backgroundColor = "green";
+			}
+			function changeAgain(){
+				document.getElementById("follow_heading").style.backgroundColor= "black"
+			}
+
+		</script>
+			<title>
+				hello_user
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+
+			<div class = "header">
+				<div class = "blogname">
+					<a href="http://localhost:8080/blogname">blogname</a>
+				</div>
+				<div class = "new_post">
+  		    		<a href="http://localhost:8080/new"><img src="/static/images/write-icon.jpg"></a>
+  		    		<div id = "popup_new_post" >Write a new post</div>
+  	    		</div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://localhost:8080/logout"><img src="/static/images/logout.png"></a>
+					{% endif %}
+				</div>
+				<div class = "username">
+					<a href= "http://localhost:8080/hello_user/{{username}}">{{username}}</a>
+	 			</div>
+ 			</div>
+
+
+	 		<div id = "hello_user_wrapper1">
+    			<div class = "hello_user_pic_description_and_post">
+      			      top element
+      				 <div class = "inner2">
+            			<div class = "one">
+            				   hi, this is one
+           				 </div>
+           				 <div class = "two">
+          					     hi, this is two
+         			    </div>
+         			   <div style = "clear:both"></div>
+       				</div>
+            		<div id = "inner2">
+            			{% for id in posts %}
+            			<div id = "four">
+            				left
+            				<hr>
+            			</div>
+
+            			<div id = "five">
+            				five
+            			</div>
+            			<div style = "clear:both;"></div>
+            			{% endfor %}
+          	   		</div>
+          	   		<div id = "inner3">
+          	   			<div id = "inner3_left">
+          	   				next button
+          	   			</div>
+          	   			<div id = "inner3_right">
+          	   				prev button
+          	   			</div>
+          	   		</div>
+       		 </div>
+
+ 			</div>
+
+  	    </div>
+
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://localhost:8080/about">About</a>
+		</div>		
+
+
+
+	</body>
+
+</html>

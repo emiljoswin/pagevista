@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			<script type="text/javascript">
+				function checkEmail(){
+					alert("checkmail")
+				}
+			</script>
+			<title>
+				signup
+			</title>	
+	</head>
+<body>
+	<div class = "header">
+		<span class = "blogname"><a href="http://pagevista.appspot.com/welcome">pageVista</a></span>
+		<div class = "login"><a href="http://pagevista.appspot.com/login">{{login}}</a></div> <!-- This line was posted later so that 
+		a user can have Login button in the signup page. Seems like this is a requirement -->
+
+	</div>
+	<div id = "container">
+	<div class = "wrapper">
+		<form name = "signup_form" method = "post">
+			<div class ="signuppage_signup">
+				<h1>Sign up!</h1>
+				<table align = "center">
+					<tr>
+					<td align = "right"> <span class = "label">Username:</span> </td>
+					<td> <input type = "text" name = "username" value = "{{username}}"><span class = "signup_error">{{username_error}}</span></td>
+					</tr>
+					<tr>
+					<td align = "right"> <span class = "label">Email:</span> </td>
+					<td> <input type = "text" name = "email" value = "{{email}}" ><span class = "signup_error">{{email_error}}</span></td>
+					</tr>
+					<tr>
+					<td align = "right"> <span class = "label">Password:</span> </td>
+					<td> <input type = "password" name = "password"><span class = "signup_error">{{password_error}}</span></td>
+					</tr>
+					<tr>
+					<td align = "right"> <span class = "label">Confirm Password:</span></td>
+					<td> <input type = "password" name = "password_confirm"><span class = "signup_error">{{password_confirm_error}}</span></td>
+					</tr>
+				</table>
+				<br>
+				<input type = "submit" name = "signup" value = "sign up">
+			</div>
+		</form>
+	</div>
+	</div>
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>		
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			<script type="text/javascript" src="/static/nicEdit/nicEdit-latest.js"></script>
+		 	<script type="text/javascript">
+				//<![CDATA[
+  		   	   bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+ 				 //]]>
+ 		 	</script>
+			<script type="text/javascript">
+				function clearnicEdit(){
+					alert('hi');
+				}
+				function keyPressed(total,srcName,areaName){
+					var e = document.getElementById(srcName);
+					var len = e.value.length;
+					var span = document.getElementById(areaName);
+					// span.innerHTML=len;
+					var remaining = total-len;
+					if (remaining < 0){
+						display = "There are too many characters in the title";
+						display = display.fontcolor("red");
+					}
+					else{
+						display = new String(remaining) + " characters more";
+					}
+					span.innerHTML=display;
+				}
+				function tagPressed(srcName, areaName, errorName){
+					var tag = document.getElementById(srcName).value;
+					var display_tag = document.getElementById(areaName);
+					var display_error = document.getElementById(errorName);
+					var len = tag.length;
+					display_error.innerHTML = "";
+					// display_tag.innerHTML = "";
+					var i = 0;
+					for(i = 0; i < len; i++){
+						if (tag.charAt(i) == ' '){
+							error = "Invalid tag";
+							error = error.fontcolor('red');
+							display_error.style.fontWeight = "bold";
+							display_error.innerHTML = error;
+						}
+					}
+					if (len > 15){
+						error = "Invalid tag";
+						error = error.fontcolor('red');
+						display_error.style.fontWeight = "bold";
+						display_error.innerHTML = error;						
+					}else{
+						tag = tag.fontcolor("##011B30");
+						display_tag.style.background = "#D6EBFC";
+						display_tag.style.border = "1px solid blue";
+						display_tag.style.padding = "3px";
+						display_tag.innerHTML = tag;
+					}
+				}
+				function closeTips(){
+					// alert('close');
+					var e = document.getElementById('tips_for_creating_a_good_page').style.display = "none";
+					var h = document.getElementById('show_tips').style.display = "block";
+				}
+				function openTips(){
+					var e = document.getElementById('tips_for_creating_a_good_page').style.display = "block";
+					var h = document.getElementById('show_tips').style.display = "none";					
+				}
+			</script>
+			<title>
+				new
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+			<div class = "header">
+				<div class = "blogname"><a href="http://pagevista.appspot.com/welcome" >pageVista</a></div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://pagevista.appspot.com/logout"><img src="	/static/images/logout.png"></a>
+					{% endif %}
+				</div>	
+				<div class = "username">
+					<a href= "http://pagevista.appspot.com/hello_user/{{username}}">{{username}}</a>				
+				</div>
+		
+			</div>
+			<div class = "new_wrapper">
+				<form name = "new_post" method = "post">
+					<table width = "100%" style="margin-top:1%;">
+						<tr>
+							<td width ="5%" align="right">Title:</td>
+							<td width = "50%" ><input type = "text" name = "title" id = "title" value = "{{title}}"
+							onKeyUp="keyPressed(50,'title','new_no_of_chars_left_title');" style="width:200px; height:30px;"></td>
+
+							<td width = "45%"><span id = "new_no_of_chars_left_title"></span></td> 
+						</tr>
+<!-- 					<tr>
+						<td width= "5%" align="right">Subject:</td>
+						<td width = "70%" ><input type = "text" name = "subject" id = "subject"  
+							onKeyDown="keyPressed(80,'subject','no_of_chars_left_sub');"></td>
+
+						<td width = "25%"><span id = "no_of_chars_left_sub">80</span> characters more </td> 
+					</tr> -->
+					</table>
+					<br>
+					<h4>
+ 			   		 Textarea
+ 					</h4>
+ 					<div id = "new_tag_message">must be atleast 140 characters long.</div>
+ 				 	<textarea name="editor1" style="width:100%; height:60%;" onClick = "clearnicEdit();">{{content}}</textarea><br />
+ 				 	<div class = "new_post_error">{{error}}</div>
+         			<div class = "tags">
+         				<br>
+         				<span id = "new_tag_message">Specify three tags/categories this post belongs to (max 10 chars where each word is separated by '_')</span>	<br><br>
+         				<table>
+         				<tr> 
+         					<td> Tag1: </td> <td><input type = "text" id = "tag1" name = "tag1" 
+         					onKeyUp ="tagPressed('tag1','check_tag1','error_tag1');" ></td><td><span id = "check_tag1">1</span></td><td><span id = "error_tag1"></span></td>
+         				</tr>
+         				<tr>
+         					<td> Tag2: </td> <td><input type = "text" id = "tag2" name = "tag2" 
+         					onKeyUp ="tagPressed('tag2','check_tag2','error_tag2');" ></td><td><span id = "check_tag2">2</span></td><td><span id = "error_tag2"></span></td>
+         				</tr>
+         				<tr>
+         					<td> Tag3: </td> <td><input type = "text" id = "tag3" name = "tag3" 
+         					onKeyUp ="tagPressed('tag3','check_tag3','error_tag3');" ></td><td><span id = "check_tag3">3</span></td><td><span id = "error_tag3"></span></td>
+         				</tr>
+         				</table>
+         			</div>
+
+         			<br>
+         			<div class = "upload_submit_preview">
+					<input type = "submit" name = "upload" value = "upload">
+					<!-- <input type = "submit" name = "save" value = "save"> -->
+					<!-- <input type = "submit" name = "preview" value = "preview"> -->
+					</div>
+				</form>	
+				
+			</div>
+
+		</div>
+		<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>
+		<div id = "tips_for_creating_a_good_page">
+			<div id = "close_tips"><img src="/static/images/arrow-right.png" style = "height:30px; width:30px; cursor:pointer;" onClick = "closeTips();"></div><br>
+			Tips for creating a better Greenpage.<br><br>
+			1. Give a relevat title not more than 50 characters in length.<br>
+			<br>
+			2. Even though you can use the fonts listed in the editor, using 'Helvetica' or 'arial' will  make your page fall in sinc with theGreenPage.
+			<br><br>
+			3. Give relevant tagnames. They make your page meaningful and findable.
+			<br><br>
+			4. Only the first 15 characters of the tagname will be stored with the page.
+		</div>
+		<div id = "show_tips">
+			<div id = "arrow_button"> <img src="/static/images/arrow-left.png" style = "height:30px; width:30px; cursor:pointer"onClick = "openTips();" > </div>
+		</div>
+	</body>
+
+</html>

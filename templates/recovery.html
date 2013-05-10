@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>
+			Recovery
+		</title>
+	</head>
+	<body>
+		Welcome {{username}}
+		<form name = "recovery" method = "post">
+			<table>
+				<tr>
+					<td> type new password:</td>
+					<td><input type = "password" name = "password"></td>
+				</tr>
+				<tr>
+					<td> Retype new password:</td>
+					<td><input type = "password" name = "password_confirm"></td>
+				</tr>
+			</table>
+			<input type = "submit" value = "Reset">
+			
+			{{error}}
+		</form>
+	</body>
+</html>

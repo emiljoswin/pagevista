@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<LINK rel="stylesheet" type="text/css" href="/static/about.css">
+			<script type="text/javascript">
+				function popAlert(){
+					arrCookies = document.cookie;
+					alert(arrCookies);					
+				}
+			</script>
+			<title>
+				about
+			</title>	
+	</head>
+	<body>
+		<div id = "container">
+
+			<div class = "header">
+				<div class = "blogname"><a href="http://pagevista.appspot.com/welcome">pageVista</a></div>
+					<div class = "new_post">
+  		    			<a href="http://pagevista.appspot.com/new"><img src="/static/images/write-icon.jpg"></a>
+  		    			<div id = "popup_new_post" >Write a new post</div>
+  	    			</div>
+				<div class = "logout">
+					{% if logout %}
+						<a href="http://pagevista.appspot.com/logout"><img src="/static/images/logout.png"></a>
+					{% endif %}
+				</div>  	    	
+				<div class = "signup"><a href="http://pagevista.appspot.com/signup">{{signup}}</a></div>
+				<div class = "login"><a href="http://pagevista.appspot.com/login">{{login}}</a></div>
+				<div class = "username">
+					<a href = "http://pagevista.appspot.com/hello_user/{{username}}">{{username}}</a>
+				</div>
+ 			</div>
+
+ 			<div id = "blogname_wrapper1">
+ 			
+ 		
+ 				<div id = "blogname_pic_description_and_post">
+ 					<div id = "blogname_inner1">
+ 						<div id = "recent">
+ 							<a href="http://pagevista.appspot.com/recent">Recent</a>
+ 						</div>
+ 						<div id = "trending">
+ 							<a href="http://pagevista.appspot.com/trending">Trending</a>
+ 						</div>
+ 						<div id = "all_time_great">
+ 							<a href="http://pagevista.appspot.com/all_time_great">All Time great</a>
+ 						</div>
+ 						<div id = "tags">
+ 							<a href="http://pagevista.appspot.com/tags">Tags</a>
+ 						</div>
+ 						<div id = "search_area">
+	 						<form name = "search_box" method = "post">
+ 								<input type = "text" name = "search_key">
+		 							<input type = "submit" name = "tag_search" value = "Search for Tags">
+	 						</form>
+	 					</div> 
+ 						<div style = "clear:both"></div>
+ 					</div>
+ 					<div id = "blogname_inner2">
+ 						{% for id in posts %}	
+ 							<div id = "blogname_four">
+ 								<span class = "blogname_title1"><a href = "http://pagevista.appspot.com/done/{{id[0]}}">{{id[1]}}</a></span>
+ 								<span class = "blogname_author1"><a href = "http://pagevista.appspot.com/hello_user/{{id[2]}}" onClick = "popAlert();">{{id[2]}}</a></span>
+	 							<br>
+	 							{% if id[7] %}
+	 								<span id = "blogname_tag1"><a href="http://pagevista.appspot.com/tag/{{id[7]}}">{{id[7]}}</a></span>
+	 							{% endif %}
+	 							{% if id[8] %}
+	 								<span id = "blogname_tag2"><a href="http://pagevista.appspot.com/tag/{{id[8]}}">{{id[8]}}</a></span>
+	 							{% endif %}
+	 							{% if id[9] %}
+	 								<span id = "blogname_tag3"><a href="http://pagevista.appspot.com/tag/{{id[9]}}">{{id[9]}}</a></span>
+	 							{% endif %}
+ 								<span id = "blogname_date">{{id[4]}}</span>
+ 								<hr>
+	 						</div>
+	 						<div id = "blogname_five">
+            					<div id = "blogname_five_one">{{id[10]}}</div>
+            					<div id = "blogname_five_two"><img src="/static/images/thumbsup.png"></div>
+            					<div id = "blogname_five_three">{{id[11]}}</div>
+            					<div id = "blogname_five_four"><img src = "/static/images/thumbsdown.png"></div>
+            					<div id = "blogname_five_five">{{id[6]}}</div>
+            					<div id = "blogname_five_six"><img src = "/static/images/comments3.png"></div>
+            					<div style = "clear:both"></div>
+            				</div>
+            				<div style = "clear:both;"></div>
+  						{% endfor %}
+ 					</div>
+					<div id = "blogname_inner3">
+<!--           	 		  	<div id = "blogname_inner3_left">
+          	 		  		prev button
+          	   			</div>
+          	   			<div id = "blogname_inner3_right">
+          	   				next button 
+          				</div>	 -->	
+          			</div>	
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div id = "footer">
+ 			<hr>
+			<a href = "http://pagevista.appspot.com/about">About</a>
+		</div>		
+	</body>
+
+</html>
