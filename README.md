@@ -1,7 +1,5 @@
-This was a fun project that I had started about a year ago and it is incomplete. However, it was one  of my favorites because
-it is through this project that i got into the world of web development. In fact, it was here that I wrote my first html, css and javascript. I
-knew a bit of python beforehand. From there it went onto google app-engine, memcached etc. Things moved on quickly. I learned a lot in the past 
-one year and now I spend a significant portion of my time developing backend architectures for websites as well as mobile devices.
+This was a fun project but it is incomplete. However, it was one  of my favorites because
+it is through this project that i got into the world of web development. In fact, it was here that I wrote my first html, css and javascript. 
 
 This is a website that will provide you with a personal homepage. 
 
